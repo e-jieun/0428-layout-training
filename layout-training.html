@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* *{
+      margin: 0;
+      padding: 0;
+    }
+    #root{
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #root>#con{
+      width: 50vw;
+      height: 50vw;
+      border: 1px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    } */
+    /* #root>#con>div{
+      width: 25vw;
+      height: 25vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    } */
+    /* #root>#con>div:nth-child(1){
+      background-color: aquamarine;
+      position: absolute;
+      right: 25vh;
+      top: 40vh;
+    }
+    #root>#con>div:nth-child(2){
+      background-color: rgb(50, 63, 59);
+      position: absolute;
+      right: 15vh;
+      top: 45vh;
+    } */
+    /* #root>#con>div:nth-child(1):active{
+      z-index: 2;
+    }
+    #root>#con>div:nth-child(2):active{
+      z-index: 2;
+    } */
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div id="con">
+      <div>
+        <div>A</div>
+      </div>
+      <div>
+        <div>B</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // *
+    document.body.style.margin = 0;
+    document.body.style.padding = 0;
+
+    // get #root
+    const root = document.getElementById('root');
+    console.log(root);
+    // 변수 선언
+    let hun = 100;
+    let center = 'center';
+    // #root style
+    root.style.width = `${hun}vw`;
+    root.style.height = `${hun}vh`;
+    // #con 가운데 정렬
+    root.style.display = 'flex';
+    root.style.alignItems = center;
+    root.style.justifyContent = center;
+    console.log(root.style);
+
+    console.log(root.children);
+
+    // #root>#con
+    const con = root.children[0];
+    console.log(con);
+    // #con style
+    con.style.width = `${hun/2}vw`;
+    con.style.height = `${hun/2}vw`;
+    con.style.border = '1px solid #000';
+    // div들 가운데 정렬 
+    con.style.display = 'flex';
+    con.style.alignItems = center;
+    con.style.justifyContent = center;
+
+    const conChild = con.children;
+    console.log(conChild);
+
+    // conChild에 일괄 적용 style
+    for(let i = 0; i < conChild.length; i++){
+      conChild[i].style.width = `${hun/4}vw`;
+      conChild[i].style.height = `${hun/4}vw`;
+      conChild[i].style.display = `flex`;
+      conChild[i].style.alignItems = center;
+      conChild[i].style.justifyContent = center;
+      conChild[i].style.position = 'absolute';
+    }
+
+    // conChild[0] style
+    conChild[0].style.backgroundColor = 'aquamarine';
+    conChild[0].style.right = `${hun/4}vh`;
+    conChild[0].style.top = `${hun/10*4}vh`;
+    console.log(conChild[0]);
+    
+    // conChild[1] style
+    conChild[1].style.backgroundColor = `rgb(50, 63, 59)`;
+    conChild[1].style.right = `${hun/10+5}vh`;
+    conChild[1].style.top = `${hun/2-5}vh`;
+    conChild[1].style.zIndex = 2;
+    console.log(conChild[1]);
+
+    let clickValue;
+    // conChild click event
+
+
+    for(let i = 0; i < conChild.length; i++){
+      conChild[i].addEventListener('click', function(){
+        let clickValue = true;
+        if(clickValue === true){
+          conChild[i].style.zIndex++;
+          clickValue = false;
+          console.log(conChild[i]);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
