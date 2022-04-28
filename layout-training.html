@@ -89,8 +89,8 @@
     const con = root.children[0];
     console.log(con);
     // #con style
-    con.style.width = `${hun/2}vw`;
-    con.style.height = `${hun/2}vw`;
+    con.style.width = `${hun/2}vh`;
+    con.style.height = `${hun/2}vh`;
     con.style.border = '1px solid #000';
     // div들 가운데 정렬 
     con.style.display = 'flex';
@@ -102,8 +102,8 @@
 
     // conChild에 일괄 적용 style
     for(let i = 0; i < conChild.length; i++){
-      conChild[i].style.width = `${hun/4}vw`;
-      conChild[i].style.height = `${hun/4}vw`;
+      conChild[i].style.width = `${hun/4}vh`;
+      conChild[i].style.height = `${hun/4}vh`;
       conChild[i].style.display = `flex`;
       conChild[i].style.alignItems = center;
       conChild[i].style.justifyContent = center;
@@ -112,13 +112,13 @@
 
     // conChild[0] style
     conChild[0].style.backgroundColor = 'aquamarine';
-    conChild[0].style.right = `${hun/4}vh`;
-    conChild[0].style.top = `${hun/10*4}vh`;
+    conChild[0].style.right = `${hun/3+5}vh`;
+    conChild[0].style.top = `${hun/10*3}vh`;
     console.log(conChild[0]);
     
     // conChild[1] style
     conChild[1].style.backgroundColor = `rgb(50, 63, 59)`;
-    conChild[1].style.right = `${hun/10+5}vh`;
+    conChild[1].style.right = `${hun/10*3}vh`;
     conChild[1].style.top = `${hun/2-5}vh`;
     conChild[1].style.zIndex = 2;
     console.log(conChild[1]);
